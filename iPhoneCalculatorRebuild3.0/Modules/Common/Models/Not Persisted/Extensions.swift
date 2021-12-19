@@ -5,8 +5,6 @@
 //  Created by Alfredo Colon on 12/19/21.
 //
 
-import Foundation
-
 import UIKit
 
 extension UIColor {
@@ -115,7 +113,6 @@ extension UILabel {
 }
 
 extension UIView {
-	
 	convenience init(frame: CGRect, translatesAutoresizingMaskIntoConstraints bool: Bool) {
 		self.init(frame: frame)
 		self.translatesAutoresizingMaskIntoConstraints = bool

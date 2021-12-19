@@ -249,6 +249,7 @@ public class PrecedenceOperation: NSObject, NSSecureCoding, TermProtocol {
 			guard let function: CalculatorFunction = .init(rawValue: String(nsString)) else { fatalError() }
 			return function
 		}()
+		self.reverseParentheticalExpression = coder.decodeObject(of: ParentheticalExpression.self, forKey: Key.reverseParentheticalExpression.rawValue)
 	}
 	
 	public func encode(with coder: NSCoder) {
@@ -265,6 +266,10 @@ public class PrecedenceOperation: NSObject, NSSecureCoding, TermProtocol {
 		
 		if let basicOperator = self.basicOperator {
 			coder.encode(NSString(string: basicOperator.rawValue), forKey: Key.basicOperator.rawValue)
+		}
+		
+		if let reverseParentheticalExpression = self.reverseParentheticalExpression {
+			coder.encode(reverseParentheticalExpression, forKey: Key.reverseParentheticalExpression.rawValue)
 		}
 	}
 }
