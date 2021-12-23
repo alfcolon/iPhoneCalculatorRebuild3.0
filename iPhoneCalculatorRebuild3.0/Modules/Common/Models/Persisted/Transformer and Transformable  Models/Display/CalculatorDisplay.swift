@@ -139,7 +139,7 @@ public class CalculatorDisplay: NSObject, NSSecureCoding {
 			coder.encode(NSNumber(value: copiedNumber.termType.rawValue), forKey: Key.copiedNumberTermType.rawValue)
 			coder.encode(copiedNumber, forKey: Key.copiedNumber.rawValue)
 		}
-		coder.encode(NSNumber(value: self.displayNumber.termType.rawValue), forKey: Key.displayNumber.rawValue)
+		coder.encode(NSNumber(value: self.displayNumber.termType.rawValue), forKey: Key.displayNumberTermType.rawValue)
 		coder.encode(self.displayNumber, forKey: Key.displayNumber.rawValue)
 	}
 }

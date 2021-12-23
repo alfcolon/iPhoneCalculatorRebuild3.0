@@ -344,11 +344,11 @@
 			isa = PBXGroup;
 			children = (
 				38BEE4182745E520008CBC77 /* Calculator.swift */,
+				382B5D8B276BAE6000E30FA0 /* Arithmetic */,
+				382B5DA6276BB03900E30FA0 /* ColorTheme */,
 				382B5DA8276BB05D00E30FA0 /* Display */,
 				382B5DA7276BB05000E30FA0 /* Functions */,
 				382B5DA5276BB03100E30FA0 /* Settings */,
-				382B5D8B276BAE6000E30FA0 /* Arithmetic */,
-				382B5DA6276BB03900E30FA0 /* ColorTheme */,
 				38025786276FD4EB001C190D /* Transformer.swift */,
 			);
 			path = "Transformer and Transformable  Models";
