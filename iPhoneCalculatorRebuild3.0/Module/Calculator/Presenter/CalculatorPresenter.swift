@@ -104,7 +104,7 @@ class CalculatorPresenter {
             var siUnit: CalculatorFunction! = .degrees
         }
         struct UI {
-            var calculatorContainerSize: CGSize = UIScreen.main.bounds.size
+            var calculatorContainerSize: CGSize = UIScreen.main.fixedCoordinateSpace.bounds.size
             var colorTheme: CalculatorColorTheme!
             var functionLayout: [Calculator: [CalculatorFunction]] = [
                 .scientific: CalculatorFunction.defaultLayout(for: .scientific),

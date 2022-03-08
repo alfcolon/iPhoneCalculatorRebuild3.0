@@ -28,7 +28,7 @@ class CalculatorViewController: UIViewController {
     // MARK: - View Life Cycle
     
     override func loadView() {
-        let calculatorBackgroundView = CalculatorBackgroundView(frame: UIScreen.main.bounds, presenter: self.presenter)
+        let calculatorBackgroundView = CalculatorBackgroundView(frame: UIScreen.main.fixedCoordinateSpace.bounds, presenter: self.presenter)
         self.view = calculatorBackgroundView
     }
     

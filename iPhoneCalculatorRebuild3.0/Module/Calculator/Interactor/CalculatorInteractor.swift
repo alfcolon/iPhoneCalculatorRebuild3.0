@@ -67,7 +67,7 @@ extension CalculatorInteractor: CalculatorInteractorToCalculatorModulePresenterP
 
                 self.presenter.respond(to: .calculatorDisplay(.pastedNumber(self.persistedCalculatorData.display.copiedNumber!)))
             case .load:
-                self.calculator = UIScreen.main.bounds.size.width > UIScreen.main.bounds.size.width ? .scientific : .standard
+                self.calculator = UIScreen.main.fixedCoordinateSpace.bounds.size.width > UIScreen.main.fixedCoordinateSpace.bounds.size.width ? .scientific : .standard
                 self.persistedCalculatorData = self.dataManager.fetch()
                 
                 self.presenter.respond(to: .active(self.calculator))
