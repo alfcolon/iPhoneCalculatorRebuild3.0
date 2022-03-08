@@ -97,9 +97,13 @@ extension CalculatorInteractor: CalculatorInteractorToCalculatorModulePresenterP
                 // Displayed functions
                 if let clearFunction = self.persistedCalculatorData.functions.updateDisplayedClearFunction(for: calculatorFunction) {
                     self.presenter.respond(to: .calculatorKeyboard(.clearFunction(clearFunction)))
+                    if clearFunction == .allClear {
+                        guard let selectedCalculatorFunction = self.persistedCalculatorData.functions.selectedFunction else { return }
+                        self.presenter.respond(to: .calculatorKeyboard(.useSelectedAppearance(selectedCalculatorFunction, false)))
+                    }
                 }
                 if let deselectedFunction = self.persistedCalculatorData.functions.deselectedCalculatorFunctionEvent(for: calculatorFunction) {
-                    self.presenter.respond(to: .calculatorKeyboard(.useSelectedAppearance(deselectedFunction, true)))
+                    self.presenter.respond(to: .calculatorKeyboard(.useSelectedAppearance(deselectedFunction, false)))
                 }
                 if let selectedFunction = self.persistedCalculatorData.functions.selectCalculatorFunctionEvent(for: calculatorFunction) {
                     self.presenter.respond(to: .calculatorKeyboard(.useSelectedAppearance(selectedFunction, true)))

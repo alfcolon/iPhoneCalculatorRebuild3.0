@@ -381,6 +381,7 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
                     guard (precedenceOperation.reverseTerm as? ParentheticalExpression)!.reverseParentheticalExpressionContainer.isEmpty else { return false }
                     return true
                 }()
+                let removeOperator = precedenceOperation.basicOperator != nil && precedenceOperation.rightTerm == nil
 
                 switch true {
                 case (input2IsEmpty || input2IsEmptyParentheticalExpressionContainer):
@@ -389,6 +390,9 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
                     return .addWithInput1FromLastTermAfterMovingLastOperationWithValueToCurrentPrecedence
                 case termToUpdate != nil:
                     return .addWithInput1FromLastTerm
+                case removeOperator:
+                    precedenceOperation.basicOperator = nil
+                    return .addWithInput1FromLastTerm                    
                 default:
                     fatalError()
                 }
@@ -690,6 +694,7 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
     // MARK: - Methods
     
     func evaluate(calculatorFunction: CalculatorFunction) {
+        print(calculatorFunction)
         let container = self.arithmeticValues.parentheticalExpressionContainers
         let functionCategory: CalculatorFunction.FunctionCategory = .init(calculatorFunction: calculatorFunction)
         let termCategory: CalculatorFunction.TermCategory? = .init(calculatorFunction: calculatorFunction)
