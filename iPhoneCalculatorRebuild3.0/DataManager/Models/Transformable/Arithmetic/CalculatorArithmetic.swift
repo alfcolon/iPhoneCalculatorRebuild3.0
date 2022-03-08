@@ -382,7 +382,6 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
                     return true
                 }()
 
-                
                 switch true {
                 case (input2IsEmpty || input2IsEmptyParentheticalExpressionContainer):
                     return .replaceFunctionTwoInputsKeepingInput1
@@ -529,7 +528,6 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
                 return .noUpdate
             }
         }
-
         enum NegateNumberSignUpdate: DisplayTermUpdateProtocol {
             case updateLastTerm
             case addAsTerm
@@ -594,7 +592,6 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
                 return .noUpdate
             }
         }
-        
         enum TrigonometricFunctionUpdate: DisplayTermUpdateProtocol {
             case addWithInput1FromDisplayTermToDisplayTerm
             case addWithInput1FromLastTermToLastTerm
@@ -693,6 +690,7 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
     // MARK: - Methods
     
     func evaluate(calculatorFunction: CalculatorFunction) {
+        let container = self.arithmeticValues.parentheticalExpressionContainers
         let functionCategory: CalculatorFunction.FunctionCategory = .init(calculatorFunction: calculatorFunction)
         let termCategory: CalculatorFunction.TermCategory? = .init(calculatorFunction: calculatorFunction)
         
@@ -983,7 +981,7 @@ public class CalculatorArithmetic: NSObject, NSSecureCoding {
         case .addAfterReplaceFunction2InputsWithInput1:
             guard let functionWithTwoInputs = self.arithmeticValues.currentFunctionWithTwoInputs else { fatalError() }
             self.arithmeticValues.currentPrecedenceOperation.add(termReplacement: functionWithTwoInputs.input1)
-            self.arithmeticValues.currentPrecedenceOperation.basicOperator = basicOperator
+            self.evaluate(calculatorFunction: basicOperator)
         }
     }
     
