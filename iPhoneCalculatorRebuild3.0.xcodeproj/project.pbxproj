@@ -199,8 +199,9 @@
 		3809596027D6817D00A37E09 /* ModuleInterface */ = {
 			isa = PBXGroup;
 			children = (
-				381974C327D04A0000099ABA /* Protocols */,
 				381974CF27D04ADA00099ABA /* ModuleInterface.swift */,
+				381974C327D04A0000099ABA /* Protocols */,
+				38BEE3B72742D6D6008CBC77 /* Modules */,
 				381974C427D04A0700099ABA /* Interactor */,
 				381974C527D04A0D00099ABA /* Presenter */,
 				381974C627D04A1500099ABA /* Router */,
@@ -230,15 +231,6 @@
 				382B5DB5276BC09300E30FA0 /* TermProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		381974BE27D0102B00099ABA /* Module */ = {
-			isa = PBXGroup;
-			children = (
-				3809596027D6817D00A37E09 /* ModuleInterface */,
-				38BEE3B72742D6D6008CBC77 /* Modules */,
-			);
-			path = Module;
 			sourceTree = "<group>";
 		};
 		381974C327D04A0000099ABA /* Protocols */ = {
@@ -408,8 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				38BEE3B62742D6C9008CBC77 /* Application */,
+				3809596027D6817D00A37E09 /* ModuleInterface */,
 				38BEE4132745DE9C008CBC77 /* DataManager */,
-				381974BE27D0102B00099ABA /* Module */,
 			);
 			path = iPhoneCalculatorRebuild3.0;
 			sourceTree = "<group>";
